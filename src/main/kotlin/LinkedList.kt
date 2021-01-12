@@ -2,12 +2,12 @@
 LinkedList implementation in kotlin
  */
 
-class Node<T>(
-    val data: T,
-    var next: Node<T>?
-)
-
 class LinkedList<T> {
+   inner class Node<T>(
+        val data: T,
+        var next: Node<T>?
+    )
+
     var head: Node<T>? = null
 
     fun add(data: T) {
