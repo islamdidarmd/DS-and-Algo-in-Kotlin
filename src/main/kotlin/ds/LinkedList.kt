@@ -1,4 +1,4 @@
-/*
+package ds/*
 LinkedList implementation in kotlin
  */
 
