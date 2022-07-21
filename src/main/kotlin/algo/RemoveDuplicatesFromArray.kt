@@ -1,4 +1,4 @@
-package coding_interview_book_solutions
+package algo
 
 fun main() {
     val nums = readLine()!!.split(" ").map(String::toInt).toMutableList()

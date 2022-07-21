@@ -1,3 +1,5 @@
+package ds
+
 fun main() {
     val arr = readLine()!!.split(" ").map(String::toInt)
     val (query) = readLine()!!.split(" ").map(String::toInt)

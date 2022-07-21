@@ -1,3 +1,5 @@
+package ds
+
 fun main() {
     val arr = readLine()!!.split(" ").map(String::toInt)
     bubbleSort(arr.toMutableList())
