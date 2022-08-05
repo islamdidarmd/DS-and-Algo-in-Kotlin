@@ -28,7 +28,7 @@ class BST {
         insert(parent = root, data = data)
     }
 
-    fun insert(parent: Node?, data: Int): Node {
+    private fun insert(parent: Node?, data: Int): Node {
         if (parent == null) {
             val node = Node(data = data)
             if (root == null) {
@@ -36,9 +36,13 @@ class BST {
             }
             return node
         }
-        if (data < parent.data) parent.left = insert(parent = parent.left, data = data)
-        else if (data > parent.data) parent.right = insert(parent = parent.right, data = data)
-        else throw IllegalArgumentException()
+        if (data < parent.data) {
+            parent.left = insert(parent = parent.left, data = data)
+        } else if (data > parent.data) {
+            parent.right = insert(parent = parent.right, data = data)
+        } else {
+            throw IllegalArgumentException()
+        }
 
         return parent
     }
@@ -48,32 +52,31 @@ class BST {
     }
 
     fun traverseInOrder() {
-       traverseInOrder(root)
+        traverseInOrder(root)
     }
 
     fun traversePostOrder() {
         traversePostOrder(root)
     }
 
-    fun traversePreOrder(root: Node?) {
+    private fun traversePreOrder(root: Node?) {
         if (root == null) return
         print("${root.data} ")
         traversePreOrder(root.left)
         traversePreOrder(root.right)
     }
 
-    fun traverseInOrder(root: Node?) {
+    private fun traverseInOrder(root: Node?) {
         if (root == null) return
         traverseInOrder(root.left)
         print("${root.data} ")
         traverseInOrder(root.right)
     }
 
-    fun traversePostOrder(root: Node?) {
+    private fun traversePostOrder(root: Node?) {
         if (root == null) return
         traversePostOrder(root.left)
         traversePostOrder(root.right)
         print("${root.data} ")
     }
-
 }
