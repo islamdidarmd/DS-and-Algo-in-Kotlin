@@ -79,4 +79,20 @@ class BST {
         traversePostOrder(root.right)
         print("${root.data} ")
     }
+
+    fun isIdentical(bst: BST): Boolean {
+        return isIdentical(bst1 = root, bst2 = bst.root)
+    }
+
+    private fun isIdentical(bst1: Node?, bst2: Node?): Boolean {
+        if (bst1 == null && bst2 == null) {
+            return true
+        } else if (bst1 == null || bst2 == null) {
+            return false
+        } else if (bst1.data == bst2.data) {
+            return isIdentical(bst1 = bst1.left, bst2 = bst2.left) && isIdentical(bst1 = bst1.right, bst2 = bst2.right)
+        }
+
+        return false
+    }
 }
