@@ -97,7 +97,7 @@ class BST {
     }
 
     fun isHeightBalanced(): Boolean {
-        if (root == null) return false
+        if (root == null) return true
         val leftHeight = getHeightOfNode(root!!.left)
         val rightHeight = getHeightOfNode(root!!.right)
         return leftHeight - rightHeight <= 1
