@@ -1,5 +1,7 @@
 package ds
 
+import kotlin.math.abs
+
 fun main() {
     val bst = BST()
     bst.insert(data = 10)
@@ -96,11 +98,16 @@ class BST {
         return false
     }
 
-    fun isHeightBalanced(): Boolean {
+    fun isHeightBalanced(root: Node?): Boolean {
         if (root == null) return true
-        val leftHeight = getHeightOfNode(root!!.left)
-        val rightHeight = getHeightOfNode(root!!.right)
-        return leftHeight - rightHeight <= 1
+        val leftHeight = getHeightOfNode(root.left)
+        val rightHeight = getHeightOfNode(root.right)
+        val diff = abs(leftHeight - rightHeight)
+
+        val leftBalanced = isHeightBalanced(root.left)
+        val rightBalanced = isHeightBalanced(root.right)
+
+        return diff <= 1 && leftBalanced && rightBalanced
     }
 
     private fun getHeightOfNode(node: Node?): Int {
